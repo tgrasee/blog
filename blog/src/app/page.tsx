@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "@/app/ui/styles/home.module.css";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -14,6 +15,23 @@ export default function Home() {
               <div className="flex flex-row gap-4">
                 <Link href="/blog/posts" className="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 shadow-md shadow-blue-600/40">Posts</Link>
               </div>
+            </div>
+            <div className="relative flex justify-center items-center p-4">
+            {/* Image */}
+            <Image
+              src="/image-desktop.jpeg"
+              width={1000}
+              height={760}
+              className="hidden rounded-lg md:block z-10"
+              alt="Screenshots of the dashboard project showing desktop version"
+            />
+            <Image
+              src="/image-mobile.jpeg"
+              width={560}
+              height={620}
+              className="block rounded-md md:hidden"
+              alt="Screenshot of the dashboard project showing mobile version"
+            />
             </div>
           </div>
         </div>

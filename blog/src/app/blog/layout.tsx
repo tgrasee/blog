@@ -4,7 +4,7 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className='flex flex-col p-8'>
+    <div className="container mx-auto p-4 relative">
       {children}
     </div>
   );
