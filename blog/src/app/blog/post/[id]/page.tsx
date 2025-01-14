@@ -1,13 +1,10 @@
 import { posts } from '@/app/lib/placeholder-data';
 import Post from '@/app/ui/components/posts/Post';
 
-export default async function BlogPosts({ params }: { params: { id: string } }) {
-
-    // Await the params before using its properties
-    const { id } = await params;
+export default async function BlogPosts({ params }: { params: Promise<{ id: string }> }) {
 
     // Find the post with the id that matches the URL parameter
-    const post = posts.find((post) => post.id === id);
+    const post = posts.find(async (post) => post.id === (await params).id);
 
     if (!post) {
         return <div>Post not found</div>;
